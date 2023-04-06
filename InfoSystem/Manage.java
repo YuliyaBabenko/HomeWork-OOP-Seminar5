@@ -1,8 +1,8 @@
-package InfoSystem
+package InfoSystem;
 
 public interface Manage {
-    void hireEmployee();
-    void dismissEmployee();
-    void exaltEmployee();
+    void hireEmployee(Employee person);
+    void dismissEmployee(Employee person);
+    void promoteEmployee(Employee person);
     void quitCompany();
 }

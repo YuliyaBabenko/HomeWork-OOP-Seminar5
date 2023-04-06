@@ -1,4 +1,4 @@
-package InfoSystem
+package InfoSystem;
 
 public interface Work {
     void work();

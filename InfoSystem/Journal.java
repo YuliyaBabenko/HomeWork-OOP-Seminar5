@@ -35,4 +35,13 @@ public class Journal<T extends Human> {
         return company;
     }
 
+    public boolean removeEmployee(Human human) {
+        boolean flag = false;
+        if (!company.contains(human)) {
+            company.remove(human);
+            flag = true;
+        }
+        return flag;
+    }
+
 }
