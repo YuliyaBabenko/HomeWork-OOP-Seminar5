@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Journal<T extends Human> {
     private List<T> company;
+    static Scanner scan = new Scanner(System.in);
 
     public Journal() {
         company = new ArrayList<>();
@@ -18,7 +19,9 @@ public class Journal<T extends Human> {
         return flag;
     }
 
-    public Journal<T> getEmployee(int index) {
+    public Journal<T> getEmployee() {
+        System.out.println("Введите ID сотрудника");
+        int index = scan.nextInt();
         return contains(index) ? company.get(index) : null;
     }
 

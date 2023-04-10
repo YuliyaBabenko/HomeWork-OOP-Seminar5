@@ -5,36 +5,40 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         
-        Employer genManager = new Employer("John", "Simpson", "General Manager", 150000);
+        Scanner scanner = new Scanner(System.in);
+        
+        Employer genManager = new Employer(Initialization.getInitName(), Initialization.getInitSurname(), Initialization.getInitPos(), Initialization.getInitSal());
         Journal<Human> company = new Journal();
 
         company.addEmployee(genManager, "January");
-
-        Employee employee1 = new Employee("Katherine", "Bukovski", "Purchaser", 8000);
-        Employee employee2 = new Employee("Jim", "Karter", "Logistician", 12000);
-        Employee employee3 = new Employee("Jack", "Smith", "Accountant", 9000);
-        Employee employee4 = new Employee("Pamela", "Blazic", "Finance Controller", 16000);
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите команду: 1. Добавить сотрудника 2. Удалить сотрудника 3. Редактировать сотрудника");
+        
+        System.out.println("Введите команду: 1. Добавить сотрудника 2. Удалить сотрудника 3. Редактировать сотрудника 4. Сравнить оклады сотрудников 5. Вывести список сотрудников");
 
         Integer in = scanner.nextInt();
 
         if (in == 1) {
-            genManager.hireEmployee(employee1);
-            company.addEmployee(employee1, "April");
-            employee1.work();
+            Employee employee = new Employee(Initialization.getInitName(), Initialization.getInitSurname(), Initialization.getInitPos(), Initialization.getInitSal());
+            genManager.hireEmployee(employee);
+            company.addEmployee(employee, "April");
+            employee.work();
         } else if (in == 2) {
-            genManager.dismissEmployee(employee2);
-            company.removeEmployee(employee2);
-            employee2.getDismissed();
+            Employee employee = company.getEmployee();
+            genManager.dismissEmployee(employee);
+            company.removeEmployee(employee);
+            employee.getDismissed();
         } else if (in == 3) {
-            genManager.promoteEmployee(employee3);
-            employee3.getPromotion();
+            Employee employee = company.getEmployee();
+            genManager.promoteEmployee(employee);
+            employee.getPromotion();
+        } else if (in == 4) {
+            Employee employee1 = company.getEmployee();
+            Employee employee2 = company.getEmployee();
+            System.out.println(SalaryCheck.compareSalary(employee1, employee2));
+        } else if (in == 5) {
+            System.out.print(company.toString());
         } else {
             System.out.println("No action available");
         }
         
-        // добавить сравнение
     }
 }

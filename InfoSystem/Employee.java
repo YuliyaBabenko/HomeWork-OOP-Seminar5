@@ -1,6 +1,6 @@
 package InfoSystem;
 
-public class Employee extends Human implements Work{
+public class Employee extends Human implements Work, Comparable<Employee>{
 
     public Employee(String name, String surname, String position, Integer salary) {
         super(name, surname, position, salary);
@@ -24,6 +24,11 @@ public class Employee extends Human implements Work{
     @Override
     public void quitJob() {
         System.out.println("Увольняется");
+    }
+
+    @Override
+    public int compareTo(Employee employee) {
+        return this.getSalary() - employee.getSalary();
     }
 
 }
