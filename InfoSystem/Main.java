@@ -40,5 +40,6 @@ public class Main {
             System.out.println("No action available");
         }
         
+        genManager.initiateParty();
     }
 }

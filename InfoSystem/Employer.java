@@ -1,6 +1,6 @@
 package InfoSystem;
 
-public class Employer extends Human implements Manage{
+public class Employer extends Human implements Manage, Party{
 
     public Employer(String name, String surname, String position, Integer salary) {
         super(name, surname, position, salary);
@@ -24,6 +24,11 @@ public class Employer extends Human implements Manage{
     @Override
     public void quitCompany() {
         System.out.println("Уходит из компании");
+    }
+
+    @Override
+    public void initiateParty() {
+        System.out.println("Устраивает вечеринку");
     }
     
 }
